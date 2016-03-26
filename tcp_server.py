@@ -1,9 +1,9 @@
 #!/usr/bin/env python2.7.6
 # -*- coding: utf-8 -*-
 
-import SocketServer
+import socketserver
 
-class MyTCPHandler(SocketServer.BaseRequestHandler):
+class MyTCPHandler(socketserver.BaseRequestHandler):
 	def handle(self):
 		self.data = self.request.recv(1024).strip()
 		print("{}wrote:".format(self.client_address[0]))
@@ -12,5 +12,5 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
 		
 if __name__ == '__main__':
 	HOST,PORT = "localhost", 9999
-	server = SocketServer.TCPServer((HOST,PORT), MyTCPHandler)
+	server = socketserver.TCPServer((HOST,PORT), MyTCPHandler)
 	server.server_forever()
