@@ -1,9 +1,16 @@
-#!/usr/bin/env python2.7.6
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import socketserver
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
+	"""
+    The request handler class for our server.
+
+    It is instantiated once per connection to the server, and must
+    override the handle() method to implement communication to the
+    client.
+    """
 	def handle(self):
 		self.data = self.request.recv(1024).strip()
 		print("{}wrote:".format(self.client_address[0]))
@@ -13,4 +20,4 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
 if __name__ == '__main__':
 	HOST,PORT = "localhost", 9999
 	server = socketserver.TCPServer((HOST,PORT), MyTCPHandler)
-	server.server_forever()
+	server.serve_forever()
