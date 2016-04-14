@@ -6,15 +6,15 @@ from datetime import datetime
 
 connect('test')
 
-class BlogPost(Document):
+class Student(Document):
     title = StringField(required=True, max_length=200)
-    posted = DateTimeField(default=datetime.datetime.now())
+    posted = DateTimeField(default=datetime.now())
     tags = ListField(StringField(max_length=50))
 
-class TextPost(BlogPost):
+class TextPost(Student):
     content = StringField(required=True)
 
-class LinkPost(BlogPost):
+class LinkPost(Student):
     url = StringField(required=True)
 
 # Create a text-based post
