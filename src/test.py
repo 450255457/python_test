@@ -5,6 +5,7 @@ from mongoengine import *
 
 connect('test')
 
+# 定义文档
 class User(Document):
     email = StringField(required=True)
     first_name = StringField(max_length=50)
@@ -16,9 +17,11 @@ class Comment(EmbeddedDocument):
         
 class Post(Document):
     title = StringField(max_length=120, required=True)
+    # ReferenceField相当于foreign key
     author = ReferenceField(User)
     tags = ListField(StringField(max_length=30))
     comments = ListField(EmbeddedDocumentField(Comment))
+    # 允许继承
     meta = {'allow_inheritance': True}
 
 class TextPost(Post):
@@ -54,8 +57,6 @@ for post in Post.objects:
 
     if isinstance(post, LinkPost):
         print 'Link:', post.link_url
-
-    print
     
 for post in TextPost.objects:
     print post.content
