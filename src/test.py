@@ -3,14 +3,16 @@
 
 from mongoengine import *
 
+#连接数据库:test
 connect('test')
 
-# 定义文档
+# 定义文档user,post
 class User(Document):
     email = StringField(required=True)
     first_name = StringField(max_length=50)
     last_name = StringField(max_length=50)
 
+# 定义embedded document
 class Comment(EmbeddedDocument):
     content = StringField()
     name = StringField(max_length=120)
