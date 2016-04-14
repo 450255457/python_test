@@ -22,4 +22,15 @@ class LinkPost(BlogPost):
 post1 = TextPost(title='Using MongoEngine', content='See the tutorial')
 post1.tags = ['mongodb', 'mongoengine']
 post1.save()
-    
+# Create a link-based post
+post2 = LinkPost(title='MongoEngine Docs', url='hmarr.com/mongoengine')
+post2.tags = ['mongoengine', 'documentation']
+post2.save()
+
+for post in BlogPost.objects:
+    print '===', post.title, '==='
+    if isinstance(post, TextPost):
+            print post.content
+    elif isinstance(post, LinkPost):
+        print 'Link:', post.url
+    print
