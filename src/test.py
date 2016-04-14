@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 from mongoengine import *
-from mongoengine.connection import connect
+from datetime import datetime
 
 connect('test')
 
 class BlogPost(Document):
     title = StringField(required=True, max_length=200)
-    posted = DateTimeField(default=datetime.datetime.now)
+    posted = DateTimeField(default=datetime.datetime.now())
     tags = ListField(StringField(max_length=50))
 
 class TextPost(BlogPost):
