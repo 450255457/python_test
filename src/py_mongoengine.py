@@ -1,3 +1,10 @@
+'''
+Created on 2016/4/14
+File Name:py_mongoengine.py
+@author: LindenTao
+Description : python模块之mongoengine
+'''
+
 #!/usr/bin/env python2.7
 # -*- coding: utf-8 -*-
 
@@ -12,7 +19,7 @@ class User(Document):
     first_name = StringField(max_length=50)
     last_name = StringField(max_length=50)
 
-# embedded document
+# 定义embedded document
 class Comment(EmbeddedDocument):
     content = StringField()
     name = StringField(max_length=120)
