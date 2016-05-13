@@ -106,5 +106,6 @@ num_posts = Post.objects(tags='mongodb').count()
 print 'Found %d posts with tag "mongodb"' % num_posts
   
 # 更新文档
-ross = User.objects(first_name = 'ross')
+ross = User.objects(first_name = 'Ross')
 ross.update(date = datetime.now())
+User.objects(first_name='John').update(set__email='123456@qq.com')

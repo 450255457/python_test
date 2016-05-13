@@ -1,6 +1,15 @@
-#!/usr/bin/env python2.7.6
+#!/usr/bin/env python2.7
 # -*- coding: utf-8 -*-
 
-import sys
+'''
+Created on 2016/05/07
+File Name:py_test.py
+author: LindenTao
+Description : list test demo
+'''
 
-print(sys.argv[0])
+import pymongo
+
+conn = pymongo.Connection("115.29.34.8", 27017)
+db = conn.test
+print db.collection_names()
