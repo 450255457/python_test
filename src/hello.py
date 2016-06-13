@@ -1,6 +1,7 @@
 #!/usr/bin/env python2.7
 # -*- coding: utf-8 -*-
 
+#导入tornado模块
 import tornado.httpserver
 import tornado.ioloop
 import tornado.options
@@ -17,6 +18,7 @@ class IndexHandler(tornado.web.RequestHandler):
         self.write("Gosh darnit, user! You caused a %d error." % status_code)
         
 if __name__ == "__main__":
+    #解析命令行
     tornado.options.parse_command_line()
     app = tornado.web.Application(handlers=[(r"/", IndexHandler)])
     http_server = tornado.httpserver.HTTPServer(app)

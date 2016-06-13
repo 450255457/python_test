@@ -25,7 +25,7 @@ class Application(tornado.web.Application):
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render(
-            "index.html",
+            "index Burt's Book.html",
             page_title = "Burt's Books | Home",
             header_text = "Welcome to Burt's Books2!",
         )

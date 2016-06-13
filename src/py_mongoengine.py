@@ -80,32 +80,33 @@ class Page(DynamicDocument):
 # page.tags = ['mongodb', 'mongoengine']
 # page.save()
 
-# 查看数据
-for post in Post.objects:
-    print post.title
-    print '=' * len(post.title)
+## 查看数据
+#for post in Post.objects:
+#    print post.title
+#    print '=' * len(post.title)
       
-    if isinstance(post, TextPost):
-        print post.content
+#    if isinstance(post, TextPost):
+#        print post.content
       
-    if isinstance(post, LinkPost):
-        print 'Link:', post.link_url
+#    if isinstance(post, LinkPost):
+#        print 'Link:', post.link_url
          
-# 通过引用字段直接获取引用文档对象    
-for post in TextPost.objects:
-    print post.content
-    print post.author.email  
-au = TextPost.objects.all().first().author
-print au.email
+## 通过引用字段直接获取引用文档对象    
+#for post in TextPost.objects:
+#    print post.content
+#    print post.author.email  
+#au = TextPost.objects.all().first().author
+#print au.email
       
-# 通过标签查询    
-for post in Post.objects(tags='mongodb'):
-    print post.title
+## 通过标签查询    
+#for post in Post.objects(tags='mongodb'):
+#    print post.title
           
-num_posts = Post.objects(tags='mongodb').count()
-print 'Found %d posts with tag "mongodb"' % num_posts
+#num_posts = Post.objects(tags='mongodb').count()
+#print 'Found %d posts with tag "mongodb"' % num_posts
   
-# 更新文档
+## 更新文档
 ross = User.objects(first_name = 'Ross')
-ross.update(date = datetime.now())
-User.objects(first_name='John').update(set__email='123456@qq.com')
+ross.delete()
+#ross.update(date = datetime.now())
+#User.objects(first_name='John').update(set__email='123456@qq.com')

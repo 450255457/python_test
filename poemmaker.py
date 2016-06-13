@@ -13,7 +13,7 @@ define("port", default=8000, help="run on the given port", type=int)
 
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render('index.html')
+        self.render('index Poem Maker Pro.html')
 
 class PoemPageHandler(tornado.web.RequestHandler):
     def post(self):
@@ -27,7 +27,8 @@ class PoemPageHandler(tornado.web.RequestHandler):
 if __name__ == '__main__':
     tornado.options.parse_command_line()
     app = tornado.web.Application(
-        handlers=[(r'/', IndexHandler), (r'/poem', PoemPageHandler)],
+        handlers=[(r'/', IndexHandler),
+        (r'/poem', PoemPageHandler)],
         template_path=os.path.join(os.path.dirname(__file__), "templates")
     )
     http_server = tornado.httpserver.HTTPServer(app)

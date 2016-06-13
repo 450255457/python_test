@@ -8,8 +8,11 @@ author: LindenTao
 Description : list test demo
 '''
 
-import pymongo
+import sys
+import os
 
-conn = pymongo.Connection("115.29.34.8", 27017)
-db = conn.test
-print db.collection_names()
+a = 'a' if 0 else 2
+print(a)
+
+if __name__ == '__main__':
+    pass
